@@ -30,7 +30,7 @@ class Navbar extends Component {
                         </ul>
                     </div>
                 </nav>
-                <Route path="/"component={Landing}/>
+                <Route path="/" exact component={Landing}/>
                 <Route path="/data" component={Data} />
                 <Route path="/info" component={Info} />
             </Router>
