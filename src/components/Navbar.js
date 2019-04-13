@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route,  Link } from 'react-router-dom';
 
-
 class Navbar extends Component {
     render(){
         return (
-
                 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
                     <Link to="/" className="navbar-brand">Macro Counter</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +26,6 @@ class Navbar extends Component {
                         </ul>
                     </div>
                 </nav>
-
         )
     }
 }
