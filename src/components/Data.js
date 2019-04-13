@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+
+
 class Data extends Component {
     render(){
         return (
-            <h1 className="lead">Data Component</h1>
+
+            <h1 className="lead">Should be Data Component</h1>
+
         )
     }
 }
