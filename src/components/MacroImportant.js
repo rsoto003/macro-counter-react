@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class MacroImportant extends Component {
    render(){
        return (
-        <div className=" container row mt-5 border-bottom border-warning">
+        <div className=" container row my-5 border-bottom border-warning">
             <h1 className="display-4 mb-3">Why are Counting Macros so Important?</h1>
             <p className="lead mx-auto">
                 Getting the correct amount of protein, carbs and fat into your macro diet will help you reach your fitness goals, whether you want to lose weight or put on some muscle. Meal plans should have a balance of all the three key macronutrients: protein, carbs, and fats.
