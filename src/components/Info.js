@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MacroIntro from './MacroIntro';
+import MacroImportant from './MacroImportant';
 
 
 class Info extends Component {
@@ -7,7 +8,7 @@ class Info extends Component {
         return ( 
             <div className="container col-xl-8 lead">
                 <MacroIntro />
-
+                <MacroImportant />
             </div>            
         )
     }
