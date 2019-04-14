@@ -7,7 +7,7 @@ import ThreeMacros from './ThreeMacros';
 class Info extends Component {
     render(){
         return ( 
-            <div className="container col-xl-10 lead">
+            <div className="container col-xl-8 col-lg-6 col-md-6 col-sm-2 lead">
                 <MacroIntro />
                 <MacroImportant />
                 <ThreeMacros />
