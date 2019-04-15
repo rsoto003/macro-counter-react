@@ -2,3 +2,7 @@
   background-image: url("./images/veggies.jpg");
   background-size: cover;
 }
+
+.list-styling {
+  list-style-type: none;
+}

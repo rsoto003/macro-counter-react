@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MacroIntro from './MacroIntro';
 import MacroImportant from './MacroImportant';
 import ThreeMacros from './ThreeMacros';
+import CountMacros from './CountMacros';
 
 
 class Info extends Component {
@@ -11,6 +12,7 @@ class Info extends Component {
                 <MacroIntro />
                 <MacroImportant />
                 <ThreeMacros />
+                <CountMacros /> 
             </div>            
         )
     }
