@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class ThreeMacros extends Component {
     render(){
         return (
@@ -15,6 +16,9 @@ class ThreeMacros extends Component {
                         and take longer to digest to keep you fuller longer. This provides more sustained energy in comparison to the quick energy of simple carbs. You can find 
                         complex carbohydrates in whole grains and vegetables. 
                     </p>
+                    <ul class="list-group col-xl-6 mb-5 mx-auto">     
+                        <li class="list-group-item list-group-item-primary">Carbs: 1 gram of carbs = 4 calories</li>
+                    </ul>
                 </div>
 
                 <div className="lead row">
@@ -23,6 +27,9 @@ class ThreeMacros extends Component {
                         Protein is the most essential macronutrient for those trying to reach their fitness goals. Helps you build muscle and and helps prevent muscle loss.
                         It is also the most satiating macro, helping you fend off hunger for longer periods of time and feel fuller. <span class="font-italic">Key foods rich in protein are meat, whey and eggs.</span>
                       </p>
+                      <ul class="list-group col-xl-6 mb-5 mx-auto">     
+                        <li class="list-group-item list-group-item-success">Protein: 1 gram of protein = 4 calories</li>
+                    </ul>
                 </div>
                 
                 <div className="lead row">
@@ -32,6 +39,9 @@ class ThreeMacros extends Component {
                         as these foods will not help your reach your fitness goals. <span className="font-italic">Good sources of fats are found in avocados,
                          nuts, coconut oil and avocado oil. </span>
                     </p>
+                    <ul class="list-group col-xl-6 mb-5 mx-auto">     
+                        <li class="list-group-item list-group-item-danger">Fat: 1 gram of fat = 9 calories</li>
+                    </ul>
                 </div>
 
             </div>
