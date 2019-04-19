@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class ThreeMacros extends Component {
     render(){
         return (
-            <div className=" container row mt-5 border-bottom border-warning">
+            <div className=" container row mt-5 border-bottom border-warning p-4">
                 <div className="row my-3">
                     <h1 className="display-4 mb-3">The Three Macros</h1>
                     <p className="lead">
