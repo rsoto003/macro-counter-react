@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import MacroForm from './MacroForm';
 
 
 class Data extends Component {
     render(){
         return (
            <div>
-                <div className="row col-xl-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
+                <div className="row col-xl-8 col-lg-6 col-md-6 col-sm-6 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
                     <h1 className="display-4 text-center col-xl-12">What Did You Eat Today?</h1>
                     <div className="form-group col-xl-4">
                         <label for="exampleInputPassword1">Day</label>
@@ -49,25 +49,12 @@ class Data extends Component {
                         <input type="text" className="form-control form4" id="fatCount" placeholder="Enter Fat Intake"/>
                     </div>
                         <button type="submit" className="btn btn-primary btn-lg mx-auto mt-2 submitButton">Submit</button>
+                    
                 </div>
-                <table className="table table-hover table-dark table-striped mt-5 col-xl-10 mx-auto text-light" id="userData">
                 <h1 className="mt-5 display-3 text-center">Your Data</h1>
-                <thead>
-                    <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Food Name</th>
-                        <th scope="col">Protein</th>
-                        <th scope="col">Carbs</th>
-                        <th scope="col">Fat</th>
-                        <th scope="col">Total Calories</th>
-                        <th scope="col"> </th>
-                    </tr>   
-                </thead>
-                <tbody>
-                
-                </tbody>
-                </table>      
+                <div className="row col-xl-12 col-lg-8 col-md-8 col-sm-6"> 
+                    <MacroForm />
+                </div>
            </div>
 
         )
