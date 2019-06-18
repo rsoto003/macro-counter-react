@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 class Navbar extends Component {
     render(){
         return (
-                <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+                <nav className="navbar navbar-expand-lg navbar-light bg-warning">
                     <Link to="/" className="navbar-brand">Macro Counter</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -12,9 +12,9 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/">Home <span class="sr-only">(current)</span></Link>
+                            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/info">Macro Education</Link>
                         </li>
                         <li className="nav-item">
