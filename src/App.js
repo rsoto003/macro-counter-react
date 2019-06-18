@@ -17,6 +17,7 @@ class App extends Component {
     error: ''
   }
   calculateMacros = (e) => {
+    e.preventDefault();
     let day = e.target.elements.day.value;
     let type = e.target.elements.type.value;
     let foodName = e.target.elements.foodName.value;
@@ -33,8 +34,12 @@ class App extends Component {
         fat: fat
       });
     } else {
-      error: 'Please fill out the form completely.'
+      this.setState({
+        error: 'Please fill out the form completely.'
+      })
+      console.log(this.state.error)
     }
+    console.log(this.state.day)
   }
   render() {
     return (
@@ -51,6 +56,7 @@ class App extends Component {
             protein={this.state.protein}
             carbs={this.state.carbs}
             fat={this.state.fat}
+            calculateMacros={this.calculateMacros}
             />
           <Route path="/info" component={Info} />
         </div>
