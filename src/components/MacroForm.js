@@ -18,7 +18,7 @@ class MacroForm extends Component {
                     </tr>   
                 </thead>
                 <tbody>
-                
+                    
                 </tbody>
             </table>      
         );
