@@ -14,7 +14,7 @@ mongoose.connect(database, {useNewUrlParser: true})
     .then( () => console.log('Connection to MongoDB is now up and running... :)'))
         .catch(err => console.error(err));
 
-app.use('api/items', macroItems);
+app.use('/api/items', macroItems);
 
 const port = process.env.port || 5000;
 
