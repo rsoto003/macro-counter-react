@@ -1,16 +1,16 @@
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = 6000;
+const bodyParser = require('body-parser');
+const port = process.env.port || 6000;
 
-app.use(cors());
+const app = express();
+
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/macros', { useNewUrlParser: true} );
-const connection = mongoose.connection;
+const database = require('./config/keys').mongoURI;
 
-connection.once('open', () => console.log(`MongoDB connection established successfully. Nice job.`));
+mongoose.connect(database, {useNewUrlParser: true})
+    .then( () => console.log('Connection to MongoDB is now up and running... :)'))
+        .catch(err => console.error(err));
 
-app.listen(PORT, () => console.log(`Server is up and running on port: ${PORT}`));
+app.listen(port, () => console.log(`Server is now started on port ${port}`));
