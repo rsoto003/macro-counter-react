@@ -21,7 +21,7 @@ class Navbar extends Component {
                             <Link className="nav-link" to="/data">Your Data</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link disabled" to="/services">Services</Link>
+                            <Link className="nav-link" to="/recipes">Recipes</Link>
                         </li>
                         </ul>
                     </div>
