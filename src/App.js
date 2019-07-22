@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Data from './components/Data';
 import Info from './components/Info';
 import Landing from './components/Landing';
+import Recipes from './components/Recipes'
 
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
             calculateMacros={this.calculateMacros}
             />
           <Route path="/info" component={Info} />
+          <Route path="/recipes" component={Recipes} />
         </div>
       </Router>
     );
