@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Form from './Form';
 
 class Recipe extends Component{
     state = {
@@ -23,7 +23,7 @@ class Recipe extends Component{
     render(){
         return (
             <div>
-                
+                <Form />
             </div>
         );
     }
