@@ -6,7 +6,7 @@ class Data extends Component {
     render(){
         return (
            <div>
-                <form  className="row col-xl-8 col-lg-6 col-md-6 col-sm-6 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
+                <form  className="row col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
                     <h1 className="display-4 text-center col-xl-12">What Did You Eat Today?</h1>
                     <div className="form-group col-xl-4">
                         <label>Day</label>
