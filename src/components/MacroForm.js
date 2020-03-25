@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 class MacroForm extends Component {
+
     render(){
         return (
-            <table className="table table-hover table-dark table-striped mt-5 col-xl-10 col-lg-10 col-md-10 col-sm-10 mx-auto text-light" id="userData">
-                
+            <table className="table table-hover table-dark table-striped mt-5 col-xl-10 col-lg-10 col-md-10 col-sm-10 mx-auto text-light" id="userData" > 
                 <thead>
                     <tr>
                         <th scope="col">Day</th>

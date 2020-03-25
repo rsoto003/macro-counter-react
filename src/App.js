@@ -8,25 +8,28 @@ import Recipes from './components/Recipes'
 
 
 class App extends Component {
-  state = {
-    day : '',
-    type: '',
-    foodName: '',
-    protein: null,
-    carbs: null,
-    fat: null,
-    error: ''
+  constructor(props){
+    super(props);
+    this.state = {
+      day : '',
+      type: '',
+      foodName: '',
+      protein: null,
+      carbs: null,
+      fat: null,
+      error: ''
+    }
+    this.calculateMacros = this.calculateMacros.bind(this);
   }
-  calculateMacros = (e) => {
-    // e.preventDefault();
-    e.stopPropagation();
-    e.persist();
-    let day = e.target.elements.day.value;
-    let type = e.target.elements.type.value;
-    let foodName = e.target.elements.foodName.value;
-    let protein = e.target.elements.protein.value; 
-    let carbs = e.target.elements.carbs.value;
-    let fat = e.target.elements.fat.value;
+
+  calculateMacros(event){
+    event.preventDefault();
+    let day = event.target.elements.day.value;
+    let type = event.target.elements.type.value;
+    let foodName = event.target.elements.foodName.value;
+    let protein = event.target.elements.protein.value; 
+    let carbs = event.target.elements.carbs.value;
+    let fat = event.target.elements.fat.value;
     if(day && type && foodName && protein && carbs && fat){
       this.setState({
         day: day,
@@ -36,6 +39,7 @@ class App extends Component {
         carbs: carbs,
         fat: fat
       });
+      console.log(this.state.day)
     } else {
       this.setState({
         error: 'Please fill out the form completely.'
