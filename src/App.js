@@ -18,7 +18,9 @@ class App extends Component {
     error: ''
   }
   calculateMacros = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    e.stopPropagation();
+    e.persist();
     let day = e.target.elements.day.value;
     let type = e.target.elements.type.value;
     let foodName = e.target.elements.foodName.value;
@@ -40,7 +42,7 @@ class App extends Component {
       })
       console.log(this.state.error)
     }
-    console.log(this.state.day)
+    console.log(this.state);
   }
   render() {
     return (
