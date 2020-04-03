@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MacroImportant extends Component {
-   render(){
+function MacroImportant(){
        return (
         <div className=" container row my-5 border-bottom border-warning">
             <h1 className="display-4 mb-3">Why are Counting Macros so Important?</h1>
@@ -14,7 +13,6 @@ class MacroImportant extends Component {
             </p>
         </div>
        );
-   }
 }
 
 export default MacroImportant;

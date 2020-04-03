@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Form extends Component {
-    render(props){
+function Form(){
         return (
             <form className="input-group mb-3 col-xl-4 mt-5 mx-auto" onSubmit={this.props.getRecipe}>
                 <input className="form-control" placeholder="Find a recipe..." type="text" name="recipe"/>
@@ -11,6 +10,5 @@ class Form extends Component {
             </form>
         )
     }
-}
 
 export default Form;

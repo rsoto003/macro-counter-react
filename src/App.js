@@ -18,7 +18,7 @@ class App extends Component {
       carbs: null,
       fat: null,
       error: ''
-    }
+    };
     this.calculateMacros = this.calculateMacros.bind(this);
   }
 
@@ -48,11 +48,12 @@ class App extends Component {
     }
     console.log(this.state);
   }
+
   render() {
     return (
       <Router>
         <div>
-          <Navbar />
+          <Navbar/>
           <Route path="/" exact component={Landing}/>
           <Route 
             path="/data" 

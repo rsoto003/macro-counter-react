@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-class Navbar extends Component {
-    render(){
+function Navbar(props){
         return (
                 <nav className="navbar navbar-expand-lg navbar-light bg-warning">
                     <Link to="/" className="navbar-brand">Macro Counter</Link>
@@ -26,8 +25,7 @@ class Navbar extends Component {
                         </ul>
                     </div>
                 </nav>
-        )
-    }
+        );
 }
 
 export default Navbar;

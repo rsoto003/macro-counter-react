@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MacroForm from './MacroForm';
 
 
-class Data extends Component {
-    constructor(props){
-        super(props);
-    }
-    render(){
+function Data(props) {
         return (
            <div>
                 <form  className="row col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
@@ -61,7 +57,6 @@ class Data extends Component {
            </div>
 
         )
-    }
 }
 
 export default Data;
