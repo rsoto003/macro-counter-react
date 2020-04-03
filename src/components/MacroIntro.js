@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MacroIntro extends Component {
-    render(){
+function MacroIntro() {
         return (
             <div className=" container row mt-5 border-bottom border-warning">
                 <h1 className="display-4 mb-3">What are Macros?</h1>
@@ -12,7 +11,6 @@ class MacroIntro extends Component {
                 </p>
             </div>
         );
-    }
 }
 
 export default MacroIntro;

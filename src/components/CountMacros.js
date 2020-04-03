@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-class CountMacros extends Component {
-
-
-    render(){
+function CountMacros(){
 
         return (
             <div className="row lead my-5">
@@ -19,7 +15,6 @@ class CountMacros extends Component {
                 </p>
             </div>
         );
-    }
 }
 
 export default CountMacros;
