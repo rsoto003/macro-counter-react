@@ -6,7 +6,7 @@ import ThreeMacros from './ThreeMacros';
 
 function Info(){
         return ( 
-            <div className="container col-xl-8 col-lg-6 col-md-6 col-sm-2 lead">
+            <div className="container col-xl-8 col-lg-10 col-md-10 col-sm-12 col-xs-12 lead mx-auto">
                 <MacroIntro />
                 <MacroImportant />
                 <ThreeMacros />
