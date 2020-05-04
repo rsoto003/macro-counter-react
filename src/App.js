@@ -10,20 +10,30 @@ import Recipes from './components/Recipes'
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      day : '',
-      type: '',
-      foodName: '',
-      protein: null,
-      carbs: null,
-      fat: null,
-      error: ''
+    // this.state = {
+    //   day : '',
+    //   type: '',
+    //   foodName: '',
+    //   protein: null,
+    //   carbs: null,
+    //   fat: null,
+    //   error: ''
+    // };
+    this.state={
+      day: 'Friday',
+      type: 'Breakfast',
+      foodName: 'Breakfast Burrito',
+      protein: 75,
+      carbs: 56,
+      fat: 2000,
+      form: true
     };
     this.calculateMacros = this.calculateMacros.bind(this);
   }
 
   calculateMacros(event){
     event.preventDefault();
+    console.log('prevent default is working finally');
     let day = event.target.elements.day.value;
     let type = event.target.elements.type.value;
     let foodName = event.target.elements.foodName.value;
@@ -64,10 +74,23 @@ class App extends Component {
             protein={this.state.protein}
             carbs={this.state.carbs}
             fat={this.state.fat}
+            form={this.state.form}
             calculateMacros={this.calculateMacros}
             />
+            {/* <Data 
+            path="/data" 
+            component={Data} 
+            day={this.state.day}
+            type={this.state.type}
+            foodName={this.state.foodName}
+            protein={this.state.protein}
+            carbs={this.state.carbs}
+            fat={this.state.fat}
+            form={this.state.form}
+            calculateMacros={this.calculateMacros}
+            /> */}
           <Route path="/info" component={Info} />
-          <Route path="/recipes" component={Recipes} />
+          {/* <Route path="/recipes" component={Recipes} /> */}
         </div>
       </Router>
     );
