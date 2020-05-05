@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from './Form';
+import Form from '../layout/Form';
 
 class Recipe extends Component{
     state = {

@@ -1,16 +1,14 @@
 import React, { Component, Fragment  } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Data from './components/Data';
-import Info from './components/Info';
-import Landing from './components/Landing';
-import MacroForm from './components/MacroForm';
+import Navbar from './components/layout/Navbar';
+import Data from './components/pages/Data';
+import Info from './components/pages/Info';
+import Landing from './components/pages/Landing';
+import MacroForm from './components/layout/MacroForm';
 // import Recipes from './components/Recipes'
 
 
 class App extends Component {
-  constructor(props){
-    super(props);
     // this.state = {
     //   day : '',
     //   type: '',
@@ -20,7 +18,7 @@ class App extends Component {
     //   fat: null,
     //   error: ''
     // };
-    this.state = {
+    state = {
       macroData: {
         day: 'Friday',
         type: 'Breakfast',
@@ -31,35 +29,35 @@ class App extends Component {
         form: true
       }
     };
-    this.calculateMacros = this.calculateMacros.bind(this);
-  }
 
-  calculateMacros(event){
+
+  calculateMacros = event => {
     event.preventDefault();
-    console.log('prevent default is working finally');
-    let day = event.target.elements.day.value;
-    let type = event.target.elements.type.value;
-    let foodName = event.target.elements.foodName.value;
-    let protein = event.target.elements.protein.value; 
-    let carbs = event.target.elements.carbs.value;
-    let fat = event.target.elements.fat.value;
-    if(day && type && foodName && protein && carbs && fat){
-      this.setState({
-        day: day,
-        type: type,
-        foodName: foodName,
-        protein: protein,
-        carbs: carbs,
-        fat: fat
-      });
-      console.log(this.state.day)
-    } else {
-      this.setState({
-        error: 'Please fill out the form completely.'
-      })
-      console.log(this.state.error)
-    }
-    console.log(this.state);
+    // console.log('prevent default is working finally');
+    // let day = event.target.elements.day.value;
+    // let type = event.target.elements.type.value;
+    // let foodName = event.target.elements.foodName.value;
+    // let protein = event.target.elements.protein.value; 
+    // let carbs = event.target.elements.carbs.value;
+    // let fat = event.target.elements.fat.value;
+    // if(day && type && foodName && protein && carbs && fat){
+    //   this.setState({
+    //     day: day,
+    //     type: type,
+    //     foodName: foodName,
+    //     protein: protein,
+    //     carbs: carbs,
+    //     fat: fat
+    //   });
+    //   console.log(this.state.day)
+    // } else {
+    //   this.setState({
+    //     error: 'Please fill out the form completely.'
+    //   })
+    //   console.log(this.state.error)
+    // }
+    // console.log(this.state);
+    console.log("event submitted")
   }
 
   render() {
@@ -92,9 +90,9 @@ class App extends Component {
                     // fat={this.state.fat}
                     // form={this.state.form}
                     // calculateMacros={this.calculateMacros}
-                    
+                    calculateMacros={this.calculateMacros}
                   />
-                  <MacroForm data={this.state.macroData} />
+                  <MacroForm data={this.state.macroData}  />
                 </Fragment>
               )} />
             </Switch>
