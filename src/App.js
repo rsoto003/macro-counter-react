@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { Component, Fragment  } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Data from './components/Data';
 import Info from './components/Info';
 import Landing from './components/Landing';
-import Recipes from './components/Recipes'
+import MacroForm from './components/MacroForm';
+// import Recipes from './components/Recipes'
 
 
 class App extends Component {
@@ -19,14 +20,16 @@ class App extends Component {
     //   fat: null,
     //   error: ''
     // };
-    this.state={
-      day: 'Friday',
-      type: 'Breakfast',
-      foodName: 'Breakfast Burrito',
-      protein: 75,
-      carbs: 56,
-      fat: 2000,
-      form: true
+    this.state = {
+      macroData: {
+        day: 'Friday',
+        type: 'Breakfast',
+        foodName: 'Breakfast Burrito',
+        protein: 75,
+        carbs: 56,
+        fat: 2000,
+        form: true
+      }
     };
     this.calculateMacros = this.calculateMacros.bind(this);
   }
@@ -65,7 +68,7 @@ class App extends Component {
         <div>
           <Navbar/>
           <Route path="/" exact component={Landing}/>
-          <Route 
+          {/* <Route 
             path="/data" 
             component={Data} 
             day={this.state.day}
@@ -76,7 +79,25 @@ class App extends Component {
             fat={this.state.fat}
             form={this.state.form}
             calculateMacros={this.calculateMacros}
-            />
+            /> */}
+            <Switch>
+              <Route exact path="/data" render={ props => (
+                <Fragment>
+                  <Data 
+                    // day={this.state.day}
+                    // type={this.state.type}
+                    // foodName={this.state.foodName}
+                    // protein={this.state.protein}
+                    // carbs={this.state.carbs}
+                    // fat={this.state.fat}
+                    // form={this.state.form}
+                    // calculateMacros={this.calculateMacros}
+                    
+                  />
+                  <MacroForm data={this.state.macroData} />
+                </Fragment>
+              )} />
+            </Switch>
             {/* <Data 
             path="/data" 
             component={Data} 
@@ -89,7 +110,14 @@ class App extends Component {
             form={this.state.form}
             calculateMacros={this.calculateMacros}
             /> */}
-          <Route path="/info" component={Info} />
+          
+          <Switch>
+          <Route path="/info" render={ props => (
+            <Fragment>
+              <Info macroData={this.state.macroData}/>
+            </Fragment>
+          )} />
+          </Switch>
           {/* <Route path="/recipes" component={Recipes} /> */}
         </div>
       </Router>

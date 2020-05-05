@@ -17,7 +17,6 @@ function Landing(){
                     <Link className="btn btn-dark btn-lg" to="/data">Your Data</Link>
                 </div>
             </div>
-
         )
 }
 
