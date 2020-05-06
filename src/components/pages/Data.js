@@ -11,8 +11,7 @@ function Data(props) {
                     <div className="form-group col-xl-4 col-lg-4 col-md-6">
                         <label>Day</label>
                         <select 
-                            
-                                className="custom-select" 
+                            className="custom-select" 
                             name="day"
                             value={day}
                             onChange={props.handleChange}
@@ -29,7 +28,12 @@ function Data(props) {
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6">
                         <label>Type</label>
-                        <select className="custom-select" name="type" value={type} onChange={props.handleChange}>
+                        <select 
+                            className="custom-select" 
+                            name="type" 
+                            value={type} 
+                            onChange={props.handleChange}
+                        >
                             <option defaultValue>Choose...</option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Lunch">Lunch</option>
@@ -64,9 +68,8 @@ function Data(props) {
                     
                 </form>
                 <h1 className="mt-5 display-3 text-center">Your Data</h1>
-                <div className="row col-xl-12 col-lg-8 col-md-8 col-sm-6"> 
-               
-                    <MacroForm />
+                <div className="row col-xl-10 col-lg-8 col-md-8 col-sm-12"> 
+                    <MacroForm macros={props.macros}/>
                 </div>
            </div>
 
