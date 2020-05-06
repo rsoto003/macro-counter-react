@@ -1,13 +1,12 @@
 import React from 'react';
 import MacroForm from '../layout/MacroForm';
 
-
 function Data(props) {
         const { day, type, food, protein, carbs, fat } = props.macros
         return (
            <div>
                 <form onSubmit={props.calculateMacros} className="row col-xl-12 col-lg-12 col-md-8 col-sm-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
-                    <h1 className="display-4 text-center col-xl-12">What Did You Eat Today?</h1>
+                    <h1 className="display-4 text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bottom border-warning mb-5 pb-3">What Did You Eat Today?</h1>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6">
                         <label>Day</label>
                         <select 
@@ -54,24 +53,43 @@ function Data(props) {
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <label>Protein</label>
-                        <input type="text" className="form-control form2" placeholder="Enter Protein Intake" name="protein" value={protein} onChange={props.handleChange}/>                              
+                        <input  
+                            type="text"  
+                            className="form-control form2"   
+                            placeholder="Enter Protein Intake"    
+                            name="protein"     
+                            value={protein}     
+                            onChange={props.handleChange}/>                              
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <label>Carbs</label>
-                        <input type="text" className="form-control form3" placeholder="Enter Carb Intake" name="carbs" value={carbs} onChange={props.handleChange}/>
+                        <input  
+                            type="text"  
+                            className="form-control form3"   
+                            placeholder="Enter Carb Intake"   
+                            name="carbs"  
+                            value={carbs}    
+                            onChange={props.handleChange}/>
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <label>Fat</label>
-                        <input type="text" className="form-control form4" placeholder="Enter Fat Intake" name="fat" value={fat} onChange={props.handleChange}/>
+                        <input  
+                            type="text"  
+                            className="form-control form4"   
+                            placeholder="Enter Fat Intake"    
+                            name="fat"     
+                            value={fat} onChange={props.handleChange}/>
                     </div>
                         <button type="submit" className="btn btn-primary btn-lg mx-auto mt-2 submitButton">Submit</button>
-                    
+                        {/* <button type="button" className="btn btn-danger btn-lg mx-auto" onClick={props.delEvent}>Delete</button> */}
                 </form>
+
+
                 { props.macros.length !== 0 &&
                     <div>
                         <h1 className="mt-5 display-3 text-center">Your Data</h1>
-                        <div className="row col-xl-12 col-lg-12 col-md-8 col-sm-12"> 
-                        <MacroForm macros={props.macros}/>
+                        <div className="row col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto"> 
+                        <MacroForm macros={props.macros} delEvent={props.delEvent}/>
                         </div>
                     </div>
                 }

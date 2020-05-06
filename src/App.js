@@ -5,8 +5,6 @@ import Data from './components/pages/Data';
 import Info from './components/pages/Info';
 import Landing from './components/pages/Landing';
 
-
-
 class App extends Component {
     state = {
         macros: [],
@@ -17,6 +15,7 @@ class App extends Component {
         carbs: '',
         fat: '',
         calories: '',
+        id: ''
     };
 
   handleChange = event => {
@@ -27,13 +26,18 @@ class App extends Component {
   }
   calculateMacros = event => {
     event.preventDefault();
-    let { day, type, food, protein, carbs, fat } = this.state;
+    let { day, type, food, protein, carbs, fat, id } = this.state;
+    id = Math.floor(Math.random() * 10000);
     const macroData = {
-      day, type, food, protein, carbs, fat
+      day, type, food, protein, carbs, fat, id
     }
     this.setState({ 
       macros: [...this.state.macros, macroData]
     })
+  }
+
+  deleteItem = (id) => {
+    console.log('delete button clicked')
   }
 
   render() {
@@ -42,25 +46,14 @@ class App extends Component {
         <div>
           <Navbar/>
           <Route path="/" exact component={Landing}/>
-          {/* <Route 
-            path="/data" 
-            component={Data} 
-            day={this.state.day}
-            type={this.state.type}
-            foodName={this.state.foodName}
-            protein={this.state.protein}
-            carbs={this.state.carbs}
-            fat={this.state.fat}
-            form={this.state.form}
-            calculateMacros={this.calculateMacros}
-            /> */}
             <Switch>
               <Route exact path="/data" render={ props => (
                 <Fragment>
                   <Data 
                     handleChange={this.handleChange}
                     calculateMacros={this.calculateMacros}
-                    macros = {this.state.macros}
+                    macros={this.state.macros}
+                    delEvent={this.deleteItem}
                   />
                 </Fragment>
               )} />
@@ -72,6 +65,7 @@ class App extends Component {
             </Fragment>
           )} />
           </Switch>
+
           {/* <Route path="/recipes" component={Recipes} /> */}
         </div>
       </Router>
