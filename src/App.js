@@ -17,7 +17,6 @@ class App extends Component {
         carbs: '',
         fat: '',
         calories: '',
-        error: ''
     };
 
   handleChange = event => {
@@ -33,7 +32,7 @@ class App extends Component {
       day, type, food, protein, carbs, fat
     }
     this.setState({ 
-      macros: [macroData]
+      macros: [...this.state.macros, macroData]
     })
   }
 
