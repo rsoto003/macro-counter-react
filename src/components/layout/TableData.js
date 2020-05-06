@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TableData = ({item: { day, type, food, protein, carbs, fat, calories}} ) => {
+const TableData = ({item: { day, type, food, protein, carbs, fat, calories}, delEvent} ) => {
     return (
         <tr>
             <th scope="row">{day}</th>
@@ -10,7 +10,7 @@ const TableData = ({item: { day, type, food, protein, carbs, fat, calories}} ) =
             <td>{carbs}</td>
             <td>{fat}</td>
             <td>{calories}</td>
-            <td><button className="btn btn-sm btn-danger">Delete</button></td>
+            <td><button type="button"className="btn btn-sm btn-danger" onClick={delEvent}>Delete</button></td>
         </tr>
     )
 }
