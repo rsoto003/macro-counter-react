@@ -1,7 +1,6 @@
 import React from 'react';
 
-const TableData = props => {
-    const { day, type, food, protein, carbs, fat, calories } = props.item;
+const TableData = ({item: { day, type, food, protein, carbs, fat, calories}} ) => {
     return (
         <tr>
             <th scope="row">{day}</th>
@@ -11,6 +10,7 @@ const TableData = props => {
             <td>{carbs}</td>
             <td>{fat}</td>
             <td>{calories}</td>
+            <td><button className="btn btn-sm btn-danger">Delete</button></td>
         </tr>
     )
 }
