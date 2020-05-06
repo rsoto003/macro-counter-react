@@ -37,7 +37,13 @@ class App extends Component {
   }
 
   deleteItem = (id) => {
-    console.log('delete button clicked')
+    console.log('macro item to be deleted: ', id);
+    this.setState(prevState => {
+      const updatedMacros = prevState.macros.filter(item => item.id !== id);
+      return {
+        macros: updatedMacros
+      }
+    })
   }
 
   render() {
