@@ -1,7 +1,9 @@
 import React from 'react';
+import TableData from './TableData';
 
 function MacroForm(props){
-   return (
+    let macroData = props.macros.map( item => <TableData item={item}/>)
+    return (
         <table className="table table-hover table-dark table-striped mt-5 col-xl-10 col-lg-10 col-md-10 col-sm-10 mx-auto text-light" id="userData" > 
             <thead>
                 <tr>
@@ -16,12 +18,9 @@ function MacroForm(props){
                 </tr>   
             </thead>
             
-            {/* <tbody>
-                <tr>
-                    <th>{props.day}</th>
-                    <td>{props.type}</td> 
-                </tr>
-            </tbody> */}
+            <tbody>
+                {macroData}
+            </tbody>
         </table>      
         );
 }
