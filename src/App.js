@@ -14,8 +14,8 @@ class App extends Component {
         protein: '',
         carbs: '',
         fat: '',
-        calories: '',
-        id: ''
+        id: '',
+        calories: null
     };
 
   handleChange = event => {
@@ -31,7 +31,7 @@ class App extends Component {
     let newCarb = carbs * 4;
     let newProtein = protein * 4;
     let newFat = fat * 9;
-    
+    let calculatedCalories = newCarb + newProtein + newFat;
     id = Math.floor(Math.random() * 10000);
     const macroData = {
       day,
@@ -40,7 +40,8 @@ class App extends Component {
       id,
       carbs: newCarb,
       fat: newFat,
-      protein: newProtein
+      protein: newProtein,
+      calories: calculatedCalories
     }
     this.setState({ 
       macros: [...this.state.macros, macroData]
