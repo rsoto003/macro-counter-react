@@ -15,7 +15,8 @@ class App extends Component {
         carbs: '',
         fat: '',
         id: '',
-        calories: null
+        calories: null,
+        alert: false
     };
 
   handleChange = event => {
@@ -43,9 +44,13 @@ class App extends Component {
       protein: newProtein,
       calories: calculatedCalories
     }
-    this.setState({ 
-      macros: [...this.state.macros, macroData]
-    })
+    if( day || type || food || protein || carbs || fat === ''){
+      this.setState({ alert: true})
+    } else {
+      this.setState({ 
+        macros: [...this.state.macros, macroData]
+      })
+    }
   }
 
   deleteItem = (id) => {
@@ -57,7 +62,9 @@ class App extends Component {
       }
     })
   }
-
+  closeAlert = () => {
+    this.setState({ alert: false })
+  }
   render() {
     return (
       <Router>
@@ -72,6 +79,8 @@ class App extends Component {
                     calculateMacros={this.calculateMacros}
                     macros={this.state.macros}
                     delEvent={this.deleteItem}
+                    alert={this.state.alert}
+                    closeAlert={this.closeAlert}
                   />
                 </Fragment>
               )} />

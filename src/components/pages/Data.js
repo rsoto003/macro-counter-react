@@ -1,12 +1,16 @@
 import React from 'react';
 import MacroForm from '../layout/MacroForm';
+import Alert from '../layout/Alert'
 
 function Data(props) {
-        const { day, type, food, protein, carbs, fat } = props.macros
+        const { day, type, food, protein, carbs, fat } = props.macros;
+        const showAlert = props.alert ? <Alert closeAlert={props.closeAlert} /> : null;
         return (
            <div>
+           
                 <form onSubmit={props.calculateMacros} className="row col-xl-12 col-lg-12 col-md-8 col-sm-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5">
                     <h1 className="display-4 text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bottom border-warning mb-5 pb-3">What Did You Eat Today?</h1>
+                    {showAlert}
                     <div className="form-group col-xl-4 col-lg-4 col-md-6">
                         <label>Day</label>
                         <select 
