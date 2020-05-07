@@ -4,7 +4,7 @@ import Alert from '../layout/Alert'
 
 function Data(props) {
         const { day, type, food, protein, carbs, fat } = props.macros;
-        const showAlert = props.alert ? <Alert closeAlert={props.closeAlert} /> : null;
+        const showAlert = props.alert ? <Alert closeAlert={props.closeAlert} alertData={props.alertData} /> : null;
         return (
            <div>
            

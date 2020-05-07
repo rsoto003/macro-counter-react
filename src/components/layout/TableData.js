@@ -10,7 +10,8 @@ const TableData = ({item: { day, type, food, protein, carbs, fat, calories}, del
             <td>{carbs} cal </td>
             <td>{fat} cal </td>
             <td>{calories} cal</td>
-            <td><button type="button"className="btn btn-sm btn-danger" onClick={delEvent}>Delete</button></td>
+            <td><button type="button" className="btn btn-sm btn-danger" onClick={delEvent}>Delete</button></td>
+            <td><button type="button" className="btn btn-sm btn-success">Edit</button></td>
         </tr>
     )
 }

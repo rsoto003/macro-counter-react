@@ -16,7 +16,8 @@ class App extends Component {
         fat: '',
         id: '',
         calories: null,
-        alert: false
+        alert: false,
+        alertData: null
     };
 
   handleChange = event => {
@@ -44,8 +45,10 @@ class App extends Component {
       protein: newProtein,
       calories: calculatedCalories
     }
-    if( day || type || food || protein || carbs || fat === ''){
-      this.setState({ alert: true})
+    if( day === '' || type === '' || food === '' || protein === '' || carbs === '' || fat === ''){
+      this.setAlert('Please Fill Out Form Completely', 'danger');
+      setTimeout( () => { this.setState({ alert: false})}, 5000);
+
     } else {
       this.setState({ 
         macros: [...this.state.macros, macroData]
@@ -62,8 +65,18 @@ class App extends Component {
       }
     })
   }
+
   closeAlert = () => {
     this.setState({ alert: false })
+  }
+
+  setAlert = (msg, type) => {
+    this.setState({ 
+      alert: true,
+      alertData: {
+        msg, type
+      }
+    })  
   }
   render() {
     return (
@@ -81,6 +94,8 @@ class App extends Component {
                     delEvent={this.deleteItem}
                     alert={this.state.alert}
                     closeAlert={this.closeAlert}
+                    setAlert={this.setAlert}
+                    alertData={this.state.alertData}
                   />
                 </Fragment>
               )} />
