@@ -24,12 +24,23 @@ class App extends Component {
       [name]: value
     })
   }
+
   calculateMacros = event => {
     event.preventDefault();
     let { day, type, food, protein, carbs, fat, id } = this.state;
+    let newCarb = carbs * 4;
+    let newProtein = protein * 4;
+    let newFat = fat * 9;
+    
     id = Math.floor(Math.random() * 10000);
     const macroData = {
-      day, type, food, protein, carbs, fat, id
+      day,
+      type, 
+      food, 
+      id,
+      carbs: newCarb,
+      fat: newFat,
+      protein: newProtein
     }
     this.setState({ 
       macros: [...this.state.macros, macroData]
