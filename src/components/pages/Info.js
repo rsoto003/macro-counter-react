@@ -1,4 +1,5 @@
 import React from 'react';
+// import CountMacros from '../CountMacros';
 
 function Info(props){
         return ( 
@@ -63,8 +64,9 @@ function Info(props){
                         <li className="list-group-item list-group-item-danger">Fat: 1 gram of fat = 9 calories</li>
                     </ul>
                 </div>
-
+                    
                 </div>
+                {/* <CountMacros /> */}
             </div>            
         )
 }
