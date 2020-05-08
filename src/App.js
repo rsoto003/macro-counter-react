@@ -51,7 +51,13 @@ class App extends Component {
 
     } else {
       this.setState({ 
-        macros: [...this.state.macros, macroData]
+        macros: [...this.state.macros, macroData],
+        day: '',
+        type: '',
+        food: '',
+        protein: '',
+        carbs: '',
+        fat: ''
       })
     }
   }
@@ -96,6 +102,12 @@ class App extends Component {
                     closeAlert={this.closeAlert}
                     setAlert={this.setAlert}
                     alertData={this.state.alertData}
+                    day={this.state.day}
+                    type={this.state.type}
+                    food={this.state.food}
+                    protein={this.state.protein}
+                    carbs={this.state.carbs}
+                    fat={this.state.fat}
                   />
                 </Fragment>
               )} />
