@@ -3,7 +3,7 @@ import MacroForm from '../layout/MacroForm';
 import Alert from '../layout/Alert'
 
 function Data(props) {
-        const { day, type, food, protein, carbs, fat } = props.macros;
+        const { day, type, food, protein, carbs, fat } = props;
         const showAlert = props.alert ? <Alert closeAlert={props.closeAlert} alertData={props.alertData} /> : null;
         return (
            <div>
@@ -53,12 +53,13 @@ function Data(props) {
                             name="food" 
                             value={food} 
                             onChange={props.handleChange}
+                            type="text"
                         />
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <label>Protein</label>
                         <input  
-                            type="text"  
+                            type="number"  
                             className="form-control form2"   
                             placeholder="Enter Protein Intake"    
                             name="protein"     
@@ -68,7 +69,7 @@ function Data(props) {
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <label>Carbs</label>
                         <input  
-                            type="text"  
+                            type="number"  
                             className="form-control form3"   
                             placeholder="Enter Carb Intake"   
                             name="carbs"  
@@ -78,14 +79,13 @@ function Data(props) {
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <label>Fat</label>
                         <input  
-                            type="text"  
+                            type="number"  
                             className="form-control form4"   
                             placeholder="Enter Fat Intake"    
                             name="fat"     
                             value={fat} onChange={props.handleChange}/>
                     </div>
                         <button type="submit" className="btn btn-primary btn-lg mx-auto mt-2 submitButton">Submit</button>
-                        {/* <button type="button" className="btn btn-danger btn-lg mx-auto" onClick={props.delEvent}>Delete</button> */}
                 </form>
 
 
