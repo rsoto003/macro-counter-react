@@ -4,7 +4,8 @@ import TableData from './TableData';
 function MacroForm(props){
     let macroData = props.macros.map( item => <TableData item={item} key={item.id} delEvent={props.delEvent.bind(this, item.id)}/>)
     return (
-        <table className="table table-hover table-dark table-striped mt-5 col-xl-10 col-lg-10 col-md-12 col-sm-12 mx-auto text-light" id="userData" > 
+        <div className="table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+            <table className="table table-hover table-dark table-striped mt-5 col-xl-10 col-lg-10 col-md-12 col-sm-12 mx-auto text-light" id="userData" > 
             <thead>
                 <tr>
                     <th scope="col">Day</th>
@@ -21,7 +22,11 @@ function MacroForm(props){
             <tbody>
                 {macroData}
             </tbody>
+
         </table>      
+        </div>
+
+        
         );
 }
 

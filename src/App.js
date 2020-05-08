@@ -43,13 +43,21 @@ class App extends Component {
       carbs: newCarb,
       fat: newFat,
       protein: newProtein,
-      calories: calculatedCalories
+      calories: calculatedCalories,
     }
+
+
     if( day === '' || type === '' || food === '' || protein === '' || carbs === '' || fat === ''){
       this.setAlert('Please Fill Out Form Completely', 'danger');
       setTimeout( () => { this.setState({ alert: false})}, 5000);
+      return;
+    } 
+    if(protein < 0 || carbs < 0 || fat < 0){
+      this.setAlert('Please enter value greater than zero.', 'danger');
+      setTimeout( () => { this.setState({ alert: false})}, 5000);
+      return;
+    }
 
-    } else {
       this.setState({ 
         macros: [...this.state.macros, macroData],
         day: '',
@@ -59,7 +67,6 @@ class App extends Component {
         carbs: '',
         fat: ''
       })
-    }
   }
 
   deleteItem = (id) => {
