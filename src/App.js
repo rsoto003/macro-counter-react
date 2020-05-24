@@ -69,7 +69,11 @@ class App extends Component {
       })
   }
 
-  deleteItem = (id) => {
+  editItem = id => {
+    console.log('item to be edited: ', id);
+  }
+
+  deleteItem = id => {
     console.log('macro item to be deleted: ', id);
     this.setState(prevState => {
       const updatedMacros = prevState.macros.filter(item => item.id !== id);
@@ -115,6 +119,7 @@ class App extends Component {
                     protein={this.state.protein}
                     carbs={this.state.carbs}
                     fat={this.state.fat}
+                    editEvent={this.editItem}
                   />
                 </Fragment>
               )} />
