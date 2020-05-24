@@ -2,7 +2,7 @@ import React from 'react';
 import MacroForm from '../layout/MacroForm';
 import Alert from '../layout/Alert'
 
-function Data(props) {
+const Data = (props) => {
         const { day, type, food, protein, carbs, fat } = props;
         const showAlert = props.alert ? <Alert closeAlert={props.closeAlert} alertData={props.alertData} /> : null;
         return (
@@ -92,7 +92,7 @@ function Data(props) {
                     <div>
                         <h1 className="mt-5 display-3 text-center">Your Data</h1>
                         <div className="row col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto"> 
-                        <MacroForm macros={props.macros} delEvent={props.delEvent}/>
+                        <MacroForm macros={props.macros} delEvent={props.delEvent} editEvent={props.editEvent}/>
                         </div>
                     </div>
                 }
