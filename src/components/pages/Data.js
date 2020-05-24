@@ -1,6 +1,6 @@
 import React from 'react';
 import MacroForm from '../layout/MacroForm';
-import Alert from '../layout/Alert'
+import Alert from '../layout/Alert';
 
 const Data = (props) => {
         const { day, type, food, protein, carbs, fat } = props;
@@ -96,6 +96,7 @@ const Data = (props) => {
                         </div>
                     </div>
                 }
+                
            </div>
 
         )

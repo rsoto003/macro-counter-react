@@ -17,7 +17,8 @@ class App extends Component {
         id: '',
         calories: null,
         alert: false,
-        alertData: null
+        alertData: null,
+        isEditing: false
     };
 
   handleChange = event => {
@@ -29,12 +30,13 @@ class App extends Component {
 
   calculateMacros = event => {
     event.preventDefault();
-    let { day, type, food, protein, carbs, fat, id } = this.state;
+    let { day, type, food, protein, carbs, fat, id, macros } = this.state;
     let newCarb = carbs * 4;
     let newProtein = protein * 4;
     let newFat = fat * 9;
     let calculatedCalories = newCarb + newProtein + newFat;
-    id = Math.floor(Math.random() * 10000);
+    // id = Math.floor(Math.random() * 10000);
+    id = macros.length + 1;
     const macroData = {
       day,
       type, 
@@ -71,7 +73,15 @@ class App extends Component {
 
   editItem = id => {
     console.log('item to be edited: ', id);
+    this.setState({
+      isEditing: true
+    })
   }
+
+  editSubmit = event => {
+    event.preventDefault();
+  }
+
 
   deleteItem = id => {
     console.log('macro item to be deleted: ', id);
@@ -95,6 +105,8 @@ class App extends Component {
       }
     })  
   }
+
+  
   render() {
     return (
       <Router>
@@ -120,6 +132,7 @@ class App extends Component {
                     carbs={this.state.carbs}
                     fat={this.state.fat}
                     editEvent={this.editItem}
+                    isEditing={this.state.isEditing}
                   />
                 </Fragment>
               )} />
