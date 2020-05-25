@@ -3,12 +3,12 @@ import MacroForm from '../layout/MacroForm';
 import Alert from '../layout/Alert';
 
 const Data = (props) => {
-        const { day, type, food, protein, carbs, fat, isEditing} = props;  
+        const { day, type, food, protein, carbs, fat, isEditing, editSubmit } = props;  
         const dataTitle = isEditing ? "Edit Macro Data" : "What Did You Eat Today?";
         const showAlert = props.alert ? <Alert closeAlert={props.closeAlert} alertData={props.alertData} /> : null;
         return (
            <div>
-                <form onSubmit={props.calculateMacros} className="row col-xl-12 col-lg-12 col-md-8 col-sm-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5" autoComplete="off">
+                <form onSubmit={isEditing ? editSubmit : props.calculateMacros} className="row col-xl-12 col-lg-12 col-md-8 col-sm-10 mx-auto border border-dark border-bottom-0 border-right-0 border-left-0 pt-5" autoComplete="off">
                     <h1 className="display-4 text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bottom border-warning mb-5 pb-3">{dataTitle}</h1>
                     {showAlert}
                     
@@ -17,7 +17,7 @@ const Data = (props) => {
                         <select 
                             className="custom-select" 
                             name="day"
-                            value={isEditing ? props.editedMacros.day : day}
+                            value={day}
                             onChange={props.handleChange}
                         >
                             <option defaultValue>Choose...</option>
@@ -35,7 +35,7 @@ const Data = (props) => {
                         <select 
                             className="custom-select" 
                             name="type" 
-                            value={isEditing ? props.editedMacros.type : type} 
+                            value={type} 
                             onChange={props.handleChange}
                         >
                             <option defaultValue>Choose...</option>
@@ -52,7 +52,7 @@ const Data = (props) => {
                             className="form-control form1" 
                             placeholder="Enter Food Name Here"  
                             name="food" 
-                            value={isEditing ? props.editedMacros.food : food} 
+                            value={food} 
                             onChange={props.handleChange}
                             type="text"
                         />
@@ -64,7 +64,7 @@ const Data = (props) => {
                             className="form-control form2"   
                             placeholder="Enter Protein Intake"    
                             name="protein"     
-                            value={isEditing ? props.editedMacros.protein : protein}     
+                            value={protein}     
                             onChange={props.handleChange}/>                              
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
@@ -74,7 +74,7 @@ const Data = (props) => {
                             className="form-control form3"   
                             placeholder="Enter Carb Intake"   
                             name="carbs"  
-                            value={isEditing ? props.editedMacros.carbs : carbs}    
+                            value={carbs}    
                             onChange={props.handleChange}/>
                     </div>
                     <div className="form-group col-xl-4 col-lg-4 col-md-6 col-sm-12">
@@ -84,7 +84,7 @@ const Data = (props) => {
                             className="form-control form4"   
                             placeholder="Enter Fat Intake"    
                             name="fat"     
-                            value={isEditing ? props.editedMacros.fat : fat} 
+                            value={fat} 
                             onChange={props.handleChange}/>
                     </div>
                         <button type="submit" className="btn btn-primary btn-lg mx-auto mt-2 submitButton">Submit</button>

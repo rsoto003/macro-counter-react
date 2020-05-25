@@ -19,7 +19,7 @@ class App extends Component {
         alert: false,
         alertData: null,
         isEditing: false,
-        editedMacros: {}
+        editedMacros: '',
     };
 
   handleChange = event => {
@@ -71,30 +71,6 @@ class App extends Component {
         fat: ''
       })
   }
-
-  editItem = id => {
-    console.log('item to be edited: ', id);
-    let newMacro = null;
-    this.setState({
-      isEditing: true
-    })
-    this.state.macros.map(macroItem => {
-      if(macroItem.id === id){
-        newMacro = {
-          day: macroItem.day,
-          type: macroItem.type,
-          food: macroItem.food,
-          protein: macroItem.protein / 4,
-          carbs: macroItem.carbs / 4,
-          fat: macroItem.fat / 9
-        }
-      }
-      return newMacro
-    })
-    this.setState({
-      editedMacros: newMacro
-    })
-  }
   editChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -102,9 +78,71 @@ class App extends Component {
     })
   }
 
+
+  editItem = id => {
+    console.log('item to be edited: ', id);
+    this.setState({
+      isEditing: true,
+      editedId: id
+    })
+    // const { day, type, food, protein, carbs, fat } = this.state;
+
+        // this.setState({
+        //   day: macroItem.day,
+        //   type: macroItem.type,
+        //   food: macroItem.food,
+        //   protein: macroItem.protein / 4,
+        //   carbs: macroItem.carbs / 4,
+        //   fat: macroItem.fat / 9,
+        //   id: id,
+        // })
+      for(let i = 0; i < this.state.macros.length; i++){
+        if(this.state.macros[i].id === id){
+          this.setState({
+            day: this.state.macros[i].day,
+            type: this.state.macros[i].type,
+            food: this.state.macros[i].food,
+            protein: this.state.macros[i].protein / 4,
+            carbs: this.state.macros[i].carbs / 4,
+            fat: this.state.macros[i].fat / 9, 
+            id: id,
+          })
+        }
+      }
+  }
+
   editSubmit = event => {
     event.preventDefault();
 
+    this.setState(prevState => {
+      const protein = prevState.protein * 4;
+      const carbs = prevState.carbs * 4;
+      const fat = prevState.fat * 9;
+      let calculatedCalories = carbs + protein + fat;
+      const calculatedMacros = {
+        carbs: carbs,
+        protein: protein,
+        fat: fat, 
+        calories: calculatedCalories,
+        day: prevState.day,
+        food: prevState.food,
+        type: prevState.type,
+        id: prevState.id
+      }
+
+      const updatedMacros = prevState.macros.filter(macroItem => macroItem.id !== prevState.editedId);
+      updatedMacros.push(calculatedMacros);
+      updatedMacros.sort( ( low, high ) => {
+        return low.id - high.id
+      });
+      return {
+        macros: [...updatedMacros],
+        isEditing: false,
+        editedMacros: {},
+        editedId: ''
+      }
+    });
+    console.log(this.state.macros)
   }
 
 
@@ -117,7 +155,7 @@ class App extends Component {
       }
     })
   }
-
+  
   closeAlert = () => {
     this.setState({ alert: false })
   }
@@ -159,6 +197,7 @@ class App extends Component {
                     editEvent={this.editItem}
                     isEditing={this.state.isEditing}
                     editedMacros={this.state.editedMacros}
+                    editSubmit={this.editSubmit}
                   />
                 </Fragment>
               )} />
