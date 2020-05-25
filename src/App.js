@@ -14,12 +14,10 @@ class App extends Component {
         protein: '',
         carbs: '',
         fat: '',
-        id: '',
-        calories: null,
+        id: '', 
         alert: false,
         alertData: null,
         isEditing: false,
-        editedMacros: '',
     };
 
   handleChange = event => {
@@ -36,7 +34,6 @@ class App extends Component {
     let newProtein = protein * 4;
     let newFat = fat * 9;
     let calculatedCalories = newCarb + newProtein + newFat;
-    // id = Math.floor(Math.random() * 10000);
     id = macros.length + 1;
     const macroData = {
       day,
@@ -85,17 +82,6 @@ class App extends Component {
       isEditing: true,
       editedId: id
     })
-    // const { day, type, food, protein, carbs, fat } = this.state;
-
-        // this.setState({
-        //   day: macroItem.day,
-        //   type: macroItem.type,
-        //   food: macroItem.food,
-        //   protein: macroItem.protein / 4,
-        //   carbs: macroItem.carbs / 4,
-        //   fat: macroItem.fat / 9,
-        //   id: id,
-        // })
       for(let i = 0; i < this.state.macros.length; i++){
         if(this.state.macros[i].id === id){
           this.setState({
@@ -138,8 +124,14 @@ class App extends Component {
       return {
         macros: [...updatedMacros],
         isEditing: false,
-        editedMacros: {},
-        editedId: ''
+        editedId: '',
+        day: '',
+        type: '',
+        food: '',
+        protein: '',
+        carbs: '',
+        fat: '',
+        id: ''
       }
     });
     console.log(this.state.macros)
@@ -151,7 +143,16 @@ class App extends Component {
     this.setState(prevState => {
       const updatedMacros = prevState.macros.filter(item => item.id !== id);
       return {
-        macros: updatedMacros
+        macros: updatedMacros,
+        isEditing: false,
+        editedId: '',
+        day: '',
+        type: '',
+        food: '',
+        protein: '',
+        carbs: '',
+        fat: '',
+        id: ''
       }
     })
   }
@@ -196,7 +197,6 @@ class App extends Component {
                     fat={this.state.fat}
                     editEvent={this.editItem}
                     isEditing={this.state.isEditing}
-                    editedMacros={this.state.editedMacros}
                     editSubmit={this.editSubmit}
                   />
                 </Fragment>
