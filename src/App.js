@@ -18,7 +18,8 @@ class App extends Component {
         calories: null,
         alert: false,
         alertData: null,
-        isEditing: false
+        isEditing: false,
+        editedMacros: {}
     };
 
   handleChange = event => {
@@ -73,13 +74,37 @@ class App extends Component {
 
   editItem = id => {
     console.log('item to be edited: ', id);
+    let newMacro = null;
     this.setState({
       isEditing: true
+    })
+    this.state.macros.map(macroItem => {
+      if(macroItem.id === id){
+        newMacro = {
+          day: macroItem.day,
+          type: macroItem.type,
+          food: macroItem.food,
+          protein: macroItem.protein / 4,
+          carbs: macroItem.carbs / 4,
+          fat: macroItem.fat / 9
+        }
+      }
+      return newMacro
+    })
+    this.setState({
+      editedMacros: newMacro
+    })
+  }
+  editChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
     })
   }
 
   editSubmit = event => {
     event.preventDefault();
+
   }
 
 
@@ -133,6 +158,7 @@ class App extends Component {
                     fat={this.state.fat}
                     editEvent={this.editItem}
                     isEditing={this.state.isEditing}
+                    editedMacros={this.state.editedMacros}
                   />
                 </Fragment>
               )} />
