@@ -6,3 +6,19 @@
 .list-styling {
   list-style-type: none;
 }
+
+.card {
+  min-height: 350px;
+  max-height: 350px;
+}
+
+.card-img-top {
+  height: 200px;
+  width: 100%
+}
+
+.recipe-me-button {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px
+}
