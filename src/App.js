@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Data from './components/pages/Data';
 import Info from './components/pages/Info';
 import Landing from './components/pages/Landing';
+import Recipes from './components/pages/Recipes';
 
 class App extends Component {
     state = {
@@ -210,7 +211,7 @@ class App extends Component {
           )} />
           </Switch>
 
-          {/* <Route path="/recipes" component={Recipes} /> */}
+          <Route path="/recipes" component={Recipes} />
         </div>
       </Router>
     );
