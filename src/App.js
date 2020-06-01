@@ -6,6 +6,7 @@ import Info from './components/pages/Info';
 import Landing from './components/pages/Landing';
 import Recipes from './components/pages/Recipes';
 
+
 class App extends Component {
     state = {
         macros: [],
