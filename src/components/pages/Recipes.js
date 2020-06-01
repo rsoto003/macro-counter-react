@@ -7,13 +7,12 @@ class Recipe extends Component{
         recipes: [],
         recipe: ''
     }
+
     getRecipe = async e => {
         e.preventDefault();
-        const API_KEY = '83f89a24bad24efc937b54a0af5fb5fa';
-        const searchRecipe = await axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${API_KEY}&query=${this.state.recipe}&number=12`);
-        const recipe_data = searchRecipe.data.results;
 
-        console.log(recipe_data);
+        const searchRecipe = await axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${this.state.recipe}&number=12`);
+        const recipe_data = searchRecipe.data.results;
 
         this.setState({ recipes: recipe_data})
     }
