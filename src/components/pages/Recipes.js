@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Form from '../layout/Form';
 
+
+
 class Recipe extends Component{
     state = {
         recipes: [],
@@ -10,8 +12,15 @@ class Recipe extends Component{
 
     getRecipe = async e => {
         e.preventDefault();
+        let recipeKey = '';
 
-        const searchRecipe = await axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${process.env.REACT_APP_API_KEY}&query=${this.state.recipe}&number=12`);
+        if(process.env.NODE_ENV !== 'production'){
+            recipeKey = process.env.REACT_APP_API_KEY;
+        } else {
+            recipeKey = process.env.API_KEY
+        }
+
+        const searchRecipe = await axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${recipeKey}&query=${this.state.recipe}&number=12`);
         const recipe_data = searchRecipe.data.results;
 
         this.setState({ recipes: recipe_data})
