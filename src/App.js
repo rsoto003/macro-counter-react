@@ -135,7 +135,6 @@ class App extends Component {
         id: ''
       }
     });
-    console.log(this.state.macros)
   }
 
 
