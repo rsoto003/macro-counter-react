@@ -32,21 +32,21 @@ class Recipe extends Component{
     }
     render(){
         return (
-            <div className="mt-5">
+            <div className="mt-5 mx-auto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 recipe-container">
                 <Form getRecipe={this.getRecipe} handleRecipeChange={this.handleRecipeChange}/>
-                <div className="container">
-                <div className="row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3">
-                    {this.state.recipes.map( recipe => {
-                    return <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6" key={recipe.id}>
-                    <div className="card mb-3 text-dark">
-                    <img className="card-img-top" src={`https://spoonacular.com/recipeImages/${recipe.image}`} alt={recipe.title}/>
-                        <div className="card-body">
-                            <h5 className="card-title"> {recipe.title}</h5>
-                            <a className="btn btn-info recipe-me-button" href={recipe.sourceUrl}>Recipe Me!</a>
+                <div className="container col-xl-8 col-lg-10 col-md-10 col-sm-12 col-xs-12 mt-5 mx-auto card-container">
+                    <div className="row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 card-container">
+                        {this.state.recipes.map( recipe => {
+                        return <div className="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-xs-6" key={recipe.id}>
+                        <div className="card mb-3 text-dark">
+                        <img className="card-img-top img-fluid img-thumbnail" src={`https://spoonacular.com/recipeImages/${recipe.image}`} alt={recipe.title}/>
+                            <div className="card-body">
+                                <h5 className="card-title mb-4"> {recipe.title}</h5>
+                                <a className="btn btn-success btn-block recipe-me-button" href={recipe.sourceUrl}>Recipe Me!</a>
+                            </div>
                         </div>
-                    </div>
-                </div> 
-                })}
+                    </div> 
+                    })}
           
                     </div>
                 </div>
