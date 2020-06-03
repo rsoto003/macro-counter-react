@@ -2,7 +2,7 @@ import React from 'react';
 
 function Form(props){
         return (
-            <form className="input-group mb-3 col-xl-4 mt-5 mx-auto" onSubmit={props.getRecipe} autoComplete="off">
+            <form className="input-group mb-3 col-xl-6 col-lg-8 mt-5 mx-auto" onSubmit={props.getRecipe} autoComplete="off">
                 <input className="form-control" placeholder="Find a recipe..." type="text" name="recipe" onChange={props.handleRecipeChange}/>
                 <div className="input-group-append">
                     <button className="btn btn-primary btn-lg" type="submit">Search</button>

@@ -8,17 +8,42 @@
 }
 
 .card {
-  min-height: 350px;
-  max-height: 350px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column; 
 }
 
 .card-img-top {
   height: 200px;
   width: 100%
 }
-
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px
+}
 .recipe-me-button {
   position: absolute;
   bottom: 0;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  width: 90%;
+  justify-self: flex-end;
+  opacity: 0.7
 }
+.recipe-me-button:hover {
+  opacity: 1
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center
+}
+
